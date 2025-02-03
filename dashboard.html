@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumeo Dashboard</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Resumeo</a>
+        <a href="#" class="logout-btn">Logout</a>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to Resumeo</h1>
+        
+        <div class="options-grid">
+            <a href="#" class="option-card">
+                <img src="https://drive.google.com/file/d/1hFGox-BgrWZrPRSVf-Mylxko6fBFhi-i/view?usp=drive_link" alt="Create Resume" class="option-icon">
+                <h3 class="option-title">Create a new Resume</h3>
+                <p class="option-description">Start fresh with our easy-to-use resume builder and professional templates.</p>
+            </a>
+
+            <a href="#" class="option-card">
+                <img src="/api/placeholder/150/150" alt="Upload Resume" class="option-icon">
+                <h3 class="option-title">Upload a Resume</h3>
+                <p class="option-description">Import your existing resume and enhance it with our tools.</p>
+            </a>
+
+            <a href="#" class="option-card">
+                <img src="/api/placeholder/150/150" alt="Browse Templates" class="option-icon">
+                <h3 class="option-title">Browse Templates</h3>
+                <p class="option-description">Explore our collection of professional resume templates.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Add this after your existing options-grid div in dashboard.html -->
+    <div class="resume-builder" style="display: none;">
+        <!-- Job Description Form -->
+        <div class="job-description-form">
+            <h2>Job Details</h2>
+            <form id="jobDetailsForm">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" required>
+                </div>
+                <div class="form-group">
+                    <label for="skillsRequired">Skills Required</label>
+                    <textarea id="skillsRequired" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="workDescription">Work Description</label>
+                    <textarea id="workDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prerequisites">Prerequisites</label>
+                    <textarea id="prerequisites"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Continue</button>
+            </form>
+        </div>
+
+        <!-- Resume Builder Interface -->
+        <div class="resume-sections" style="display: none;">
+            <div class="nav-sidebar">
+                <h3>Resume Sections</h3>
+                <nav class="sections-nav">
+                    <button class="section-btn active" data-section="personal-info">Personal Information</button>
+                    <button class="section-btn" data-section="profile-links">Profile Links</button>
+                    <button class="section-btn" data-section="education">Education</button>
+                    <button class="section-btn" data-section="experience">Experience</button>
+                    <button class="section-btn" data-section="projects">Projects</button>
+                    <button class="section-btn" data-section="skills">Skills</button>
+                    <button class="section-btn" data-section="certifications">Certifications</button>
+                    <button class="section-btn" data-section="accomplishments">Accomplishments/Awards</button>
+                    <button class="section-btn" data-section="extra-curricular">Extra Curricular</button>
+                </nav>
+            </div>
+
+            <div class="content-area">
+                <!-- Personal Information Form -->
+                <div class="section-content" id="personal-info">
+                    <h3>Personal Information</h3>
+                    <form id="personalInfoForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email ID</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <button type="submit" class="save-btn">Save Information</button>
+                    </form>
+                </div>
+
+                <!-- Other section contents will be added later -->
+                <div class="section-content" id="profile-links" style="display: none;">
+                    <!-- Profile links content will go here -->
+                </div>
+                <!-- Add similar div elements for other sections -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script2.js"></script>
+</body>
+</html>

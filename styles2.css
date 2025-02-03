@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #e6f3ff;
+    min-height: 100vh;
+    color: #2d3748;
+}
+
+.header {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #357abd;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.option-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 6px rgba(74, 144, 226, 0.1);
+}
+
+.option-card:hover {
+    transform: translateY(-10px);
+    background-color: white;
+    box-shadow: 0 8px 15px rgba(74, 144, 226, 0.2);
+}
+
+.option-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.option-title {
+    font-size: 1.25rem;
+    color: #357abd;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.option-description {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Resume Builder Styles */
+.resume-builder {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Job Description Form Styles */
+.job-description-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-description-form h2 {
+    color: #357abd;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Button Styles */
+.submit-btn,
+.save-btn {
+    background: #357abd;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover,
+.save-btn:hover {
+    background: #4a90e2;
+}
+
+.resume-sections {
+    display: flex;
+    min-height: calc(100vh - 60px); /* Subtract header height */
+    position: fixed; /* Fix the position */
+    top: 60px; /* Height of your header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Navigation Sidebar */
+.nav-sidebar {
+    width: 300px; /* Fixed width as requested */
+    background: white;
+    height: 100%; /* Full height */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* In case content is too long */
+    position: fixed;
+    left: 0;
+}
+
+.nav-sidebar h3 {
+    color: #357abd;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.sections-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-btn {
+    text-align: left;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.section-btn:hover {
+    background: #e6f3ff;
+}
+
+.section-btn.active {
+    background: #357abd;
+    color: white;
+    border-left: 4px solid #1e4d89;
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    background: #f8fafc;
+    margin-left: 300px; /* Same as nav-sidebar width */
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.section-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-content h3 {
+    color: #357abd;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .resume-sections {
+        flex-direction: column;
+    }
+
+    .nav-sidebar {
+        width: 100%;
+    }
+}
