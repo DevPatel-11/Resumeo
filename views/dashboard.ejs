@@ -17,7 +17,7 @@
         
         <div class="options-grid">
             <a href="#" class="option-card">
-                <img src="https://drive.google.com/file/d/1hFGox-BgrWZrPRSVf-Mylxko6fBFhi-i/view?usp=drive_link" alt="Create Resume" class="option-icon">
+                <img src="/api/placeholder/150/150" alt="Create Resume" class="option-icon">
                 <h3 class="option-title">Create a new Resume</h3>
                 <p class="option-description">Start fresh with our easy-to-use resume builder and professional templates.</p>
             </a>
@@ -36,9 +36,7 @@
         </div>
     </div>
 
-    <!-- Add this after your existing options-grid div in dashboard.html -->
     <div class="resume-builder" style="display: none;">
-        <!-- Job Description Form -->
         <div class="job-description-form">
             <h2>Job Details</h2>
             <form id="jobDetailsForm">
@@ -70,7 +68,6 @@
             </form>
         </div>
 
-        <!-- Resume Builder Interface -->
         <div class="resume-sections" style="display: none;">
             <div class="nav-sidebar">
                 <h3>Resume Sections</h3>
@@ -88,7 +85,6 @@
             </div>
 
             <div class="content-area">
-                <!-- Personal Information Form -->
                 <div class="section-content" id="personal-info">
                     <h3>Personal Information</h3>
                     <form id="personalInfoForm">
@@ -104,20 +100,218 @@
                             <label for="email">Email ID</label>
                             <input type="email" id="email" required>
                         </div>
-                        <button type="submit" class="save-btn">Save Information</button>
+                        <button type="submit" class="save-next-btn">Save and Next</button>
                     </form>
                 </div>
 
-                <!-- Other section contents will be added later -->
                 <div class="section-content" id="profile-links" style="display: none;">
-                    <!-- Profile links content will go here -->
+                    <h3>Profile Links</h3>
+                    <div id="profiles-container">
+                        <div class="input-row">
+                            <div class="form-group">
+                                <input type="text" id="siteName" placeholder="Site Name (e.g., LinkedIn)" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="url" id="profileUrl" placeholder="Profile URL" required>
+                            </div>
+                            <button type="button" id="saveProfileBtn" class="save-btn">Add Profile</button>
+                        </div>
+                    </div>
+                    <div id="profiles-display"></div>
+                    <button type="button" class="save-next-btn">Save and Next</button>
                 </div>
-                <!-- Add similar div elements for other sections -->
+
+                <div class="section-content" id="education" style="display: none;">
+                    <h3>Education</h3>
+                    <div id="education-container">
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label>Place of Study</label>
+                                <input type="text" id="placeOfStudy" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Course</label>
+                                <input type="text" id="course" placeholder="B.Tech, Diploma, etc." required>
+                            </div>
+                            <div class="form-group date-group">
+                                <div>
+                                    <label>Start Date</label>
+                                    <select id="startMonth" required>
+                                        <option value="">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select id="startYear" required>
+                                        <option value="">Select Year</option>
+                                    </select>
+                                    
+                                    <script>
+                                        const startYearSelect = document.getElementById("startYear");
+                                        const currentYear = new Date().getFullYear();
+                                    
+                                        for (let i = 0; i < 30; i++) {
+                                            const year = currentYear - i;
+                                            const option = document.createElement("option");
+                                            option.value = year;
+                                            option.textContent = year;
+                                            startYearSelect.appendChild(option);
+                                        }
+                                    </script>
+                                </div>
+                                <div>
+                                    <label>End Date</label>
+                                    <select id="endMonth" required>
+                                        <option value="">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select id="endYear" required>
+                                        <option value="">Select Year</option>
+                                    </select>
+                                    
+                                    <script>
+                                        const endYearSelect = document.getElementById("endYear");
+                                        const currentYr = new Date().getFullYear();
+                                    
+                                        for (let i = 0; i < 40; i++) {
+                                            const year = currentYr - i + 5;
+                                            const option = document.createElement("option");
+                                            option.value = year;
+                                            option.textContent = year;
+                                            endYearSelect.appendChild(option);
+                                        }
+                                    </script>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Grade Type</label>
+                                <select id="gradeType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="gpa">GPA</option>
+                                    <option value="percentage">Percentage</option>
+                                    <option value="grade">Grade</option>
+                                </select>
+                            </div>
+                            <div id="gradeInputs" class="grade-group"></div>
+                            <button type="button" id="saveEducationBtn" class="save-btn">Add Education</button>
+                        </div>
+                    </div>
+                    <div id="education-display"></div>
+                    <button type="button" class="save-next-btn">Save and Next</button>
+                </div>
+
+                <div class="section-content" id="experience" style="display: none;">
+                    <h3>Experience</h3>
+                    <div id="experience-container">
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" id="company" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Position</label>
+                                <input type="text" id="position" required>
+                            </div>
+                            <div class="form-group date-group">
+                                <div>
+                                    <label>Start Date</label>
+                                    <select id="expStartMonth" required>
+                                        <option value="">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select id="expStartYear" required>
+                                        <option value="">Select Year</option>
+                                    </select>
+                                    
+                                    <script>
+                                        const expStartYearSelect = document.getElementById("expStartYear");
+                                        const currYear = new Date().getFullYear();
+                                    
+                                        for (let i = 0; i < 30; i++) {
+                                            const year = currYear - i;
+                                            const option = document.createElement("option");
+                                            option.value = year;
+                                            option.textContent = year;
+                                            expStartYearSelect.appendChild(option);
+                                        }
+                                    </script>
+                                    
+                                </div>
+                                <div>
+                                    <label>End Date</label>
+                                    <select id="expEndMonth" required>
+                                        <option value="">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <label for="expEndYear">Experience End Year:</label>
+                                    <select id="expEndYear" required>
+                                        <option value="">Select Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Skills Used</label>
+                                <textarea id="jobSkills" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Job Description</label>
+                                <textarea id="jobDescription" required></textarea>
+                            </div>
+                            <button type="button" id="saveExperienceBtn" class="save-btn" onclick="saveExperience()">Add Experience</button>
+                        </div>
+                    </div>
+                    <div id="experience-display"></div>
+                    <button type="button" class="save-next-btn">Save and Next</button>
+                </div>
             </div>
         </div>
     </div>
 
-
+   
+    
     <script src="/js/script2.js"></script>
 </body>
 </html>
